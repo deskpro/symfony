@@ -113,10 +113,8 @@ class FileBag extends ParameterBag
      */
     protected function fixPhpFilesArray($data)
     {
-        if (!\is_array($data)) {
-            return $data;
-        }
-
+        // Remove extra key added by PHP 8.1.
+        unset($data['full_path']);
         $keys = array_keys($data);
         sort($keys);
 
@@ -130,13 +128,13 @@ class FileBag extends ParameterBag
         }
 
         foreach ($data['name'] as $key => $name) {
-            $files[$key] = $this->fixPhpFilesArray(array(
+            $files[$key] = $this->fixPhpFilesArray([
                 'error' => $data['error'][$key],
                 'name' => $name,
                 'type' => $data['type'][$key],
                 'tmp_name' => $data['tmp_name'][$key],
                 'size' => $data['size'][$key],
-            ));
+            ]);
         }
 
         return $files;
