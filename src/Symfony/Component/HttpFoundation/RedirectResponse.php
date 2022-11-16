@@ -78,8 +78,8 @@ class RedirectResponse extends Response
      */
     public function setTargetUrl($url)
     {
-        if (empty($url)) {
-            throw new \InvalidArgumentException('Cannot redirect to an empty URL.');
+        if (empty($url) || is_array($url)) {
+            throw new \InvalidArgumentException('Cannot redirect to an empty/array URL.');
         }
 
         $this->targetUrl = $url;
