@@ -32,7 +32,8 @@
         "symfony/polyfill-php56": "~1.0",
         "symfony/polyfill-php70": "~1.0",
         "symfony/polyfill-util": "~1.0",
-        "symfony/http-foundation": "^2.8.52"
+        "symfony/http-foundation": "^2.8.52",
+        "symfony/http-kernel": "^2.8.52|4.4.50"
     },
     "replace": {
         "symfony/asset": "self.version",
@@ -52,7 +53,6 @@
         "symfony/finder": "self.version",
         "symfony/form": "self.version",
         "symfony/framework-bundle": "self.version",
-        "symfony/http-kernel": "self.version",
         "symfony/intl": "self.version",
         "symfony/ldap": "self.version",
         "symfony/locale": "self.version",
