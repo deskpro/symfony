@@ -52,7 +52,7 @@
         "symfony/form": "self.version",
         "symfony/framework-bundle": "self.version",
         "symfony/http-foundation": "self.version",
-        "symfony/http-kernel": "4.4.50",
+        "symfony/http-kernel": "self.version",
         "symfony/intl": "self.version",
         "symfony/ldap": "self.version",
         "symfony/locale": "self.version",
