@@ -82,6 +82,7 @@
 
         <service id="security.authentication.session_strategy" class="%security.authentication.session_strategy.class%" public="false">
             <argument>%security.authentication.session_strategy.strategy%</argument>
+            <argument type="service" id="security.csrf.token_storage" on-invalid="ignore" />
         </service>
 
         <service id="security.authentication.session_strategy_noop" class="Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy" public="false">
