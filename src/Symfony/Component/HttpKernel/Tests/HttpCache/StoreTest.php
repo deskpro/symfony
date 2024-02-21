@@ -263,6 +263,17 @@ class StoreTest extends TestCase
         $this->assertEmpty($this->getStoreMetadata($requestHttps));
     }
 
+    public function testDoesNotStorePrivateHeaders()
+    {
+        $request = Request::create('https://example.com/foo');
+        $response = new Response('foo');
+        $response->headers->setCookie(Cookie::fromString('foo=bar'));
+
+        $this->store->write($request, $response);
+        $this->assertArrayNotHasKey('set-cookie', $this->getStoreMetadata($request)[0][1]);
+        $this->assertNotEmpty($response->headers->getCookies());
+    }
+
     protected function storeSimpleEntry($path = null, $headers = array())
     {
         if (null === $path) {
